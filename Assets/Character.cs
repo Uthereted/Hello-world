@@ -2,27 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character 
+namespace PlayableCharacters
 {
-    public string name;
-    private int healthPoint = 1;
-
-    public int HealthPoint { get => healthPoint; set => healthPoint = value; }
-
-    public Character (string name)
+    public class Character 
     {
-        this.name = name;
-        Debug.Log("Hola, soy" + this.name);
-    }
+        private int kills;
+        public string name;
+        private int healthPoints = 1;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public Character(string name)
+        {
+            this.name = name;
+            
+            Debug.Log("Hola, soy " + name);
+        }
+        ~Character()
+        {
+            Debug.Log(name + " is dead");
+        }
+        public int HealthPoints { get => healthPoints; set => healthPoints = value; }
 
-    ~Character ()
-    {
-        Debug.Log("Destroyed.");
     }
 }
